@@ -8,4 +8,4 @@ class School(models.Model):
   menu_site = models.CharField(max_length=1000, default="") # http://services.housing.berkeley.edu/FoodPro/dining/static/todaysentrees.asp
 
   def __unicode__(self):
-    return school.name
+    return self.name
