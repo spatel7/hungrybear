@@ -42,7 +42,10 @@ class PairList(object):
 
 class Item:
 
-  def __init__(self, dining_hall, meal_time, name):
-    self.dining_hall = dining_hall
-    self.meal_time = meal_time
-    self.name = name
+  def __init__(self, location, meal, name):
+    self.location = location.lower()
+    self.meal = meal.lower()
+    self.name = name.lower()
+
+  def __repr__(self):
+    return self.name + " at " + self.location + " for " + self.meal
