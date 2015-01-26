@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hungry Bear - Register</title>
+    </head>
+
+    <body>
+
+        <h1>Welcome to Hungry Bear!</h1>
+        <h3 style="text-decoration: underline;">Register your phone number</h3>
+        {% if messages %}
+		<ul class="messages">
+		    {% for message in messages %}
+		    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+		    {% endfor %}
+		</ul>
+		{% endif %}
+        {% if registered %}
+            <strong>Thanks for signing up!</strong><br>
+            Go ahead and <a href="#">login.</a><br />
+        {% else %}
+            <form id="user_form" method="post" action="../register/" enctype="multipart/form-data" style="margin-bottom: 15px;">
+                {% csrf_token %}
+                <p><input id="id_phone" name="phone" type="text" placeholder="5043368080" style="width: 265px;"/></p>
+                
+                <!-- Provide a button to click to submit the form. -->
+                <input type="submit" name="submit" value="Sign Up" />
+            </form>
+        {% endif %}
+        <div id='buttons'>
+            <a href="../"><font>Back to main page</font></a>
+        </div>
+    </body>
+</html>
