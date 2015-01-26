@@ -1,1 +1,3 @@
 *.pyc
+hungrybear/db.sqllite3
+hungrybear/hungrybear/settings.pyc
