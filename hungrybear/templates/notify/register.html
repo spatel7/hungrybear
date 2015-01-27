@@ -21,8 +21,9 @@
         {% else %}
             <form id="user_form" method="post" action="../register/" enctype="multipart/form-data" style="margin-bottom: 15px;">
                 {% csrf_token %}
-                <p><input id="id_phone" name="phone" type="text" placeholder="5043368080" style="width: 265px;"/></p>
-                
+                <p><input id="id_user_name" name="username" type="text" placeholder="bob123" style="width: 265px;"/></p>
+                <p><input id="id_password" name="password" type="password" placeholder="**********" style="width: 265px;"/></p>
+                <p><input id="id_phone" name="phone" type="text" placeholder="+15043368080" style="width: 265px;"/></p>
                 <!-- Provide a button to click to submit the form. -->
                 <input type="submit" name="submit" value="Sign Up" />
             </form>
