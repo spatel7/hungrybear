@@ -6,8 +6,8 @@
 
     <body>
 
-        <h1>Welcome to Hungry Bear!</h1>
-        <h3 style="text-decoration: underline;">Register your phone number</h3>
+        <h1>Register here!</h1>
+        <h3 style="text-decoration: underline;">Fill out the information below.</h3>
         {% if messages %}
 		<ul class="messages">
 		    {% for message in messages %}
@@ -15,19 +15,16 @@
 		    {% endfor %}
 		</ul>
 		{% endif %}
-        {% if registered %}
-            <strong>Thanks for signing up!</strong><br>
-            Go ahead and <a href="#">login.</a><br />
-        {% else %}
-            <form id="user_form" method="post" action="../register/" enctype="multipart/form-data" style="margin-bottom: 15px;">
-                {% csrf_token %}
-                <p><input id="id_user_name" name="username" type="text" placeholder="bob123" style="width: 265px;"/></p>
-                <p><input id="id_password" name="password" type="password" placeholder="**********" style="width: 265px;"/></p>
-                <p><input id="id_phone" name="phone" type="text" placeholder="+15043368080" style="width: 265px;"/></p>
-                <!-- Provide a button to click to submit the form. -->
-                <input type="submit" name="submit" value="Sign Up" />
-            </form>
-        {% endif %}
+        <form id="user_form" method="post" action="../register/" enctype="multipart/form-data" style="margin-bottom: 15px;">
+            {% csrf_token %}
+            <p>User Name <input id="id_user_name" name="username" type="text" placeholder="bob123" style="width: 265px;"/></p>
+            <p>Password <input id="id_password" name="password" type="password" placeholder="**********" style="width: 265px;"/></p>
+            <p>Email <input id="id_email" name="email" type="email" placeholder="example@berkeley.edu" style="width: 265px;"/></p>
+            <p>Cell Phone <input id="id_phone" name="phone" type="text" placeholder="+15043368080" style="width: 265px;"/></p>
+            <p>We will send a text message verification code to the specified number</p>
+            <!-- Provide a button to click to submit the form. -->
+            <input type="submit" name="submit" value="Sign Up" />
+        </form>
         <div id='buttons'>
             <a href="../"><font>Back to main page</font></a>
         </div>

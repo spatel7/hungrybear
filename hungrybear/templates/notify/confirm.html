@@ -8,6 +8,13 @@
 
         <h1>Welcome to Hungry Bear!</h1>
         <h3 style="text-decoration: underline;">We sent a text to your phone with a verification code. Please enter it below:</h3>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
         {% if registered %}
             <strong>Thanks for signing up!</strong><br>
             Go ahead and <a href="#">login.</a><br />
@@ -15,7 +22,7 @@
             <form id="veri-form" method="post" action="../confirm/" enctype="multipart/form-data" style="margin-bottom: 15px;">
                 {% csrf_token %}
                 <p><input id="id_code" name="code" type="number" style="width: 265px;"/></p>
-                
+
                 <!-- Provide a button to click to submit the form. -->
                 <input type="submit" name="submit" value="Verify" />
             </form>

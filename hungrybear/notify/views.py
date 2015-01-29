@@ -17,11 +17,10 @@ def redirect(request):
 
 def index(request):
 	context = RequestContext(request)
-	return render_to_response('notify/index.jade', context)
+	return render_to_response('notify/index.html', context)
 
 def register(request):
 	context = RequestContext(request)
-	registered = False
 	if request.method == 'POST':
 		uprofile_form = UserProfileForm(data=request.POST)
 		user_form = UserForm(data=request.POST)
@@ -42,7 +41,6 @@ def register(request):
 			userProfile.verification_num = code
 			userProfile.save()
 			request.session['uprofile'] = userProfile.user.id
-			registered = True
 			return render_to_response('notify/confirm.html', context)
 		else:
 			if not uprofile_form.is_valid():
@@ -56,7 +54,7 @@ def register(request):
 	else:
 		uprofile_form = UserProfileForm()
 		user_form = UserForm()
-	return render_to_response('notify/register.html', context)	
+	return render_to_response('notify/register.html', context)
 
 def confirm(request):
 	context = RequestContext(request)
@@ -74,6 +72,8 @@ def confirm(request):
 			print "success"
 			userProfile.verified = True
 			userProfile.save()
-			import pdb; pdb.set_trace()
+			#import pdb; pdb.set_trace()
 			return render_to_response('notify/create.html', context) #not rendering...
-	return render_to_response('notify/confirm.html', context)
+
+
+

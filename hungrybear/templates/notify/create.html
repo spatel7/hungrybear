@@ -6,20 +6,15 @@
 
     <body>
 
-        <h1>Welcome to Hungry Bear!</h1>
+        <h1>Create your Profile!</h1>
         <h3 style="text-decoration: underline;">Thanks for verifying your number! Let's create your profile.</h3>
-        {% if registered %}
-            <strong>Thanks for signing up!</strong><br>
-            Go ahead and <a href="#">login.</a><br />
-        {% else %}
-            <form id="veri-form" method="post" action="../confirm/" enctype="multipart/form-data" style="margin-bottom: 15px;">
-                {% csrf_token %}
-                <p><input id="id_code" name="code" type="number" style="width: 265px;"/></p>
-                
-                <!-- Provide a button to click to submit the form. -->
-                <input type="submit" name="submit" value="Verify" />
-            </form>
-        {% endif %}
+        <form id="veri-form" method="post" action="../confirm/" enctype="multipart/form-data" style="margin-bottom: 15px;">
+            {% csrf_token %}
+            <p><input id="id_code" name="code" type="number" style="width: 265px;"/></p>
+
+            <!-- Provide a button to click to submit the form. -->
+            <input type="submit" name="submit" value="Verify" />
+        </form>
         <div id='buttons'>
             <a href="../"><font>Back to main page</font></a>
         </div>
